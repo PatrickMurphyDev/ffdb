@@ -6,7 +6,9 @@ Tired of using the MLB API? Downloads folder full of CSV files exported from Bas
 - A robust database schema based on the MLB API format
 - Lightning-fast queries using Apache Parquet and DuckDB
 
-(You can find more about me, the author, at (https://harperawl.net). Feel free to contact me with any questions you have about this project!)
+This was originally created as an internal tool for my own sabermetrics projects, but I cleaned it up just enough to make it public in case anyone else wanted to use it as well.
+
+(You can find more about me, the author, at https://harperawl.net. Feel free to contact me with any questions you have about this project!)
 
 ### Setup
 

@@ -1,0 +1,110 @@
+import pyarrow as pa
+
+from .base import Extractor
+from helpers import Table, sget
+
+class PitchingLogExtractor(Extractor):
+    def schema(self) -> pa.schema:
+        return pa.schema([
+            ('game_id', pa.uint32()),
+            ('player', pa.uint32()),
+
+            ('note', pa.string()),
+            ('summary', pa.string()),
+            ('games_played', pa.uint8()),
+            ('games_started', pa.uint8()),
+            ('fly_outs', pa.uint8()),
+            ('ground_outs', pa.uint8()),
+            ('air_outs', pa.uint8()),
+            ('runs', pa.uint8()),
+            ('doubles', pa.uint8()),
+            ('triples', pa.uint8()),
+            ('home_runs', pa.uint8()),
+            ('strike_outs', pa.uint8()),
+            ('base_on_balls', pa.uint8()),
+            ('intentional_walks', pa.uint8()),
+            ('hits', pa.uint8()),
+            ('hit_by_pitch', pa.uint8()),
+            ('at_bats', pa.uint8()),
+            ('caught_stealing', pa.uint8()),
+            ('stolen_bases', pa.uint8()),
+            ('wins', pa.uint8()),
+            ('losses', pa.uint8()),
+            ('saves', pa.uint8()),
+            ('save_opportunities', pa.uint8()),
+            ('holds', pa.uint8()),
+            ('blown_saves', pa.uint8()),
+            ('earned_runs', pa.uint8()),
+            ('batters_faced', pa.uint8()),
+            ('outs', pa.uint8()),
+            ('games_pitched', pa.uint8()),
+            ('complete_games', pa.uint8()),
+            ('shutouts', pa.uint8()),
+            ('pitches_thrown', pa.uint16()),
+            ('balls', pa.uint16()),
+            ('strikes', pa.uint16()),
+            ('hit_batsmen', pa.uint8()),
+            ('balks', pa.uint8()),
+            ('wild_pitches', pa.uint8()),
+            ('pickoffs', pa.uint8()),
+            ('rbi', pa.uint8()),
+            ('games_finished', pa.uint8()),
+            ('inherited_runners', pa.uint8()),
+            ('inherited_runners_scored', pa.uint8()),
+            ('catchers_interference', pa.uint8()),
+            ('sac_bunts', pa.uint8()),
+            ('sac_flies', pa.uint8()),
+            ('passed_ball', pa.uint8()),
+            ('pop_outs', pa.uint8()),
+            ('line_outs', pa.uint8())
+        ])
+    
+    def extract(self, data: dict, buffer: Table) -> None:
+        buffer['note'].append(sget(data, "note"))
+        buffer['summary'].append(sget(data, "summary"))
+        buffer['games_played'].append(sget(data, "gamesPlayed"))
+        buffer['games_started'].append(sget(data, "gamesStarted"))
+        buffer['fly_outs'].append(sget(data, "flyOuts"))
+        buffer['ground_outs'].append(sget(data, "groundOuts"))
+        buffer['air_outs'].append(sget(data, "airOuts"))
+        buffer['runs'].append(sget(data, "runs"))
+        buffer['doubles'].append(sget(data, "doubles"))
+        buffer['triples'].append(sget(data, "triples"))
+        buffer['home_runs'].append(sget(data, "homeRuns"))
+        buffer['strike_outs'].append(sget(data, "strikeOuts"))
+        buffer['base_on_balls'].append(sget(data, "baseOnBalls"))
+        buffer['intentional_walks'].append(sget(data, "intentionalWalks"))
+        buffer['hits'].append(sget(data, "hits"))
+        buffer['hit_by_pitch'].append(sget(data, "hitByPitch"))
+        buffer['at_bats'].append(sget(data, "atBats"))
+        buffer['caught_stealing'].append(sget(data, "caughtStealing"))
+        buffer['stolen_bases'].append(sget(data, "stolenBases"))
+        buffer['wins'].append(sget(data, "wins"))
+        buffer['losses'].append(sget(data, "losses"))
+        buffer['saves'].append(sget(data, "saves"))
+        buffer['save_opportunities'].append(sget(data, "saveOpportunities"))
+        buffer['holds'].append(sget(data, "holds"))
+        buffer['blown_saves'].append(sget(data, "blownSaves"))
+        buffer['earned_runs'].append(sget(data, "earnedRuns"))
+        buffer['batters_faced'].append(sget(data, "battersFaced"))
+        buffer['outs'].append(sget(data, "outs"))
+        buffer['games_pitched'].append(sget(data, "gamesPitched"))
+        buffer['complete_games'].append(sget(data, "completeGames"))
+        buffer['shutouts'].append(sget(data, "shutouts"))
+        buffer['pitches_thrown'].append(sget(data, "pitchesThrown"))
+        buffer['balls'].append(sget(data, "balls"))
+        buffer['strikes'].append(sget(data, "strikes"))
+        buffer['hit_batsmen'].append(sget(data, "hitBatsmen"))
+        buffer['balks'].append(sget(data, "balks"))
+        buffer['wild_pitches'].append(sget(data, "wildPitches"))
+        buffer['pickoffs'].append(sget(data, "pickoffs"))
+        buffer['rbi'].append(sget(data, "rbi"))
+        buffer['games_finished'].append(sget(data, "gamesFinished"))
+        buffer['inherited_runners'].append(sget(data, "inheritedRunners"))
+        buffer['inherited_runners_scored'].append(sget(data, "inheritedRunnersScored"))
+        buffer['catchers_interference'].append(sget(data, "catchersInterference"))
+        buffer['sac_bunts'].append(sget(data, "sacBunts"))
+        buffer['sac_flies'].append(sget(data, "sacFlies"))
+        buffer['passed_ball'].append(sget(data, "passedBall"))
+        buffer['pop_outs'].append(sget(data, "popOuts"))
+        buffer['line_outs'].append(sget(data, "lineOuts"))

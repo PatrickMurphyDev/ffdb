@@ -77,4 +77,4 @@ pitches <- dbGetQuery(conn, "
 ")
 ```
 
-See [the database documentation](DATABASE.md) for more information on how to query the database.
+See [the database documentation](docs/DATABASE.md) for more information on how to query the database.

@@ -1,4 +1,5 @@
-Here is the finalized visual layout for the Entity-Relationship Diagram (ERD). This layout is stylized for technical engineering documentation, explicitly detailing the composite key structures and relationship boundaries.
+wip generated ERD 
+
 ```
 ========================================================================================================
                                      CORE GAME METADATA & CONTEXT
